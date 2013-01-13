@@ -6,10 +6,12 @@ var ytPlayer,
     isOn = false,
     videos = [],
     ytPlayerContainer = $('#yt-player-contain').hide(),
-	vPlayerContainer = $('#v-player-contain').hide();
+    vPlayerContainer = $('#v-player-contain').hide(),
+    autoHideTimer,
+    dashIsHidden;
 
 function onYouTubeIframeAPIReady() {
-	console.log('onYouTubeIframeAPIReady');
+    console.log('onYouTubeIframeAPIReady');
     ytPlayer = new YT.Player('yt-player-contain', {
         height: '100%',
         width: '100%',
@@ -25,8 +27,8 @@ function onYouTubeIframeAPIReady() {
 }
 
 function startChannel() {
-	console.log('startChannel');
-	isOn = true;
+    console.log('startChannel');
+    isOn = true;
     $('#playlist-view').addClass('hide');
     $('#channel-view').removeClass('hide');
     $('body').addClass('channel-active');
@@ -40,7 +42,7 @@ function stopChannel(startIndex) {
 }
 
 function playVideo() {
-	// get video data
+    // get video data
     var videoData = videos[vidIndex];
     var service = videoData.service;
     var id = videoData.id;
@@ -48,78 +50,108 @@ function playVideo() {
 
     console.log('playVideo '+service+' '+id);
 
-    // show now playing
-    // if (typeof title === undefined) {
-    //   $('#now-playing').hide();
-    // } else {
-    //   $('#now-playing').show().find('#now-playing-title').text(decodeURIComponent(title));
-    // }
-
     // update player with new video
     if (service === 'youtube') {
       
-		// hide vimeo
-		vPlayerContainer.hide().empty();
+        // hide vimeo
+        vPlayerContainer.hide().empty();
 
-		// show/load/play video
-		console.log('service = youtube');
-		$('#yt-player-contain').show();
-		if (ytPlayer.loadVideoById) {
-			ytPlayer.loadVideoById(id);
-		}
+        // show/load/play video
+        console.log('service = youtube');
+        $('#yt-player-contain').show();
+        if (ytPlayer.loadVideoById) {
+            ytPlayer.loadVideoById(id);
+        }
     }
     else if (service === 'vimeo') {
-    	console.log('service = vimeo');
-		// hide youtube
-		$('#yt-player-contain').hide();
+        console.log('service = vimeo');
+        // hide youtube
+        $('#yt-player-contain').hide();
 
-		// show/load/play vimeo
-		vPlayerContainer.show().html('<iframe id="v-player" src="http://player.vimeo.com/video/'+id+'?api=1&player_id=v-player&autoplay=1&title=0&byline=0&portrait=0&api=1" width="100%" height="100%" frameborder="0" webkitallowfullscreen allowfullscreen></iframe>');
+        // show/load/play vimeo
+        vPlayerContainer.show().html('<iframe id="v-player" src="http://player.vimeo.com/video/'+id+'?api=1&player_id=v-player&autoplay=1&title=0&byline=0&portrait=0&api=1" width="100%" height="100%" frameborder="0" webkitallowfullscreen allowfullscreen></iframe>');
 
-		vPlayer = document.getElementById('v-player');
-		var isPlaying = false;
-		$f(vPlayer).addEvent('ready', function(playerID) {
-			console.log('vimeo event ready')
-			vPlayer = $f(playerID);
-			vPlayer.addEvent('playProgress', function(playerID) {
-				if (!isPlaying) {
-					console.log('vimeo playProgress set isPlaying = true');
-					isPlaying = true;
-				}
-				
-			});
-			vPlayer.addEvent('finish', onVideoFinish);
-		});
+        vPlayer = document.getElementById('v-player');
+        var isPlaying = false;
+        $f(vPlayer).addEvent('ready', function(playerID) {
+            console.log('vimeo event ready');
+            vPlayer = $f(playerID);
+            vPlayer.addEvent('playProgress', function(playerID) {
+                if (!isPlaying) {
+                    console.log('vimeo playProgress set isPlaying = true');
+                    isPlaying = true;
+                }
+                
+            });
+            vPlayer.addEvent('finish', onVideoFinish);
+        });
 
-		
-		setTimeout(function() {
-			if (!isPlaying && videos[vidIndex].service === 'vimeo') {
-				onPlayError('Could not play video, Vimeo ID:'+id);
-			}
-		}, 10000);
-
+        
+        setTimeout(function() {
+            if (!isPlaying && videos[vidIndex].service === 'vimeo') {
+                onPlayError('Could not play video, Vimeo ID:'+id);
+            }
+        }, 10000);
     }
     // if service not supported error
     else {
-		onPlayError('Video service "'+service+'" not recognized');
+        onPlayError('Video service "'+service+'" not recognized');
     }
+    updateDashboard();
 }
 
 function onPlayError(msg) {
-	console.log('onPlayError');
+    console.log('onPlayError');
     // throw error and try next video
     onVideoFinish();
     throw new Error(msg);
 }
 
+function updateDashboard() {
+    console.log('updateDashboard');
+    var dashboardHTML = '<span class="now-playing">Now Playing: '+videos[vidIndex].title+'</span>';
+    $('#channel-dashboard')
+        .html(dashboardHTML)
+        .removeClass('transparent');
+
+    enableAutoHide(false);
+    autoHideTimer = setTimeout(function() {
+        console.log('start autohide');
+        $('#channel-dashboard').addClass('transparent');
+        enableAutoHide(true);
+    }, 5000);
+
+}
+
+function enableAutoHide(enable) {
+    if (enable) {
+        dashIsHidden = true;
+        $('body').on('mousemove.autohide', function(event) {
+            if (dashIsHidden) {
+                dashIsHidden = false;
+                $('#channel-dashboard').removeClass('transparent');
+            }
+            clearTimeout(autoHideTimer);
+            autoHideTimer = setTimeout(function() {
+                dashIsHidden = true;
+                $('#channel-dashboard').addClass('transparent');
+            }, 1000);
+        });
+    } else {
+        clearTimeout(autoHideTimer);
+        $('body').off('mousemove.autohide');
+    }
+}
+
 function onYouTubeIframeAPIReady() {
-	console.log('onYouTubeIframeAPIReady');
+    console.log('onYouTubeIframeAPIReady');
     ytPlayer = new YT.Player('yt-player-contain', {
         height: '100%',
         width: '100%',
         playerVars: {
             controls:0,
-            showinfo:0
+            showinfo:0,
+            wmode:'transparent'
         },
         events: {
             'onReady': onYTPlayerReady,
@@ -129,9 +161,9 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onYTPlayerReady(e) {
-	console.log('onYTPlayerReady');
+    console.log('onYTPlayerReady');
     if (isOn && videos[vidIndex].service === 'youtube') {
-    	playVideo();
+        playVideo();
     }
 }
 
@@ -143,7 +175,7 @@ function onYTPlayerStateChange(e) {
 }
 
 function onVideoFinish() {
-	console.log('onVideoFinish');
+    console.log('onVideoFinish');
     vidIndex++;
     playVideo();
 }
@@ -225,7 +257,7 @@ $(function() {
         e.preventDefault();
         if (isOn && e.keyCode === 39) {
             vidIndex++;
-			playVideo();
+            playVideo();
         }
     };
 });
