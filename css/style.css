@@ -59,12 +59,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
     ========================================================================== */
 
 body { background:#f6f6f6; line-height: 1.4; font-size:18px; font-family:DINWeb-Bold; color: #282828;}
+body.channel-active { overflow: hidden; background: #000; }
 .wrapper { padding:20px 50px 100px; width:900px; margin:0 auto; }
 .main-header { margin:0; padding-bottom: 80px; text-align:center; border-bottom:solid 8px #eee;}
 
 section { margin: 10px 0;  }
 article { margin: 20px 0; padding: 20px 0; border-bottom:solid 8px #eee; }
-iframe { margin: 0 0 30px; border: solid 1px #ccc; }
+iframe { margin: 0; padding: 0; }
 
 h1 { 
   position:relative; 
@@ -132,7 +133,7 @@ a:focus, a:hover, a:active { outline:0; }
   list-style: none;
   padding: 0;
 }
-#channel-view { width:100%; height:100%; }
+#channel-view { width:100%; height:100%; overflow: hidden; }
 
 
 /*  ==========================================================================

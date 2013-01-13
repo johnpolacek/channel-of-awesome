@@ -29,6 +29,7 @@ function startChannel() {
 	isOn = true;
     $('#playlist-view').addClass('hide');
     $('#channel-view').removeClass('hide');
+    $('body').addClass('channel-active');
     playVideo();
 }
 
