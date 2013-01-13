@@ -254,8 +254,8 @@ $(function() {
     // go to next video on right arrow key down
     document.onkeydown = function(e) {
         e = e || window.event;
-        e.preventDefault();
         if (isOn && e.keyCode === 39) {
+            e.preventDefault();
             vidIndex++;
             playVideo();
         }
