@@ -1,282 +1,713 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<!doctype html>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Channel Of Awesome</title>
+    <meta name="description" content="A playlist of amazing tech videos that play fullscreen in a loop">
     
-    <title>Channel of Awesome</title>
-    <meta name="description" content="Channel of Awesome - Create playlists of YouTube and Vimeo videos that play fullscreen in a loop">
+    <meta name="viewport" content="width=1000">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="wrapper" id="playlist-view">
     
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="icon.png">
-    
-    <!-- Facebook sharing. http://developers.facebook.com/docs/opengraph/ -->
-    <meta property="og:site_name" content="Channel Of Awesome" />
-    <meta property="og:title" content="Channel Of Awesome" />
-    <meta property="og:description" content="Create playlists of YouTube and Vimeo videos that play fullscreen in a loop" />
-    <meta property="og:image" content="http://dfcb.github.com/channel-of-awesome/icon.png" /> 
-    
-    <style>
-      /*  DIN Font is NOT open source. Licensed for Draftfcb use only. 
-          To obtain a license, purchase from fontfont.com */
-      @font-face {font-family: DINWeb;src: url("fonts/DINWeb.eot");}
-      @font-face {font-family: DINWeb;src: url("fonts/DINWeb.woff") format("woff");}
-      @font-face {font-family: DINWeb-Bold;src: url("fonts/DINWeb-Bold.eot");}
-      @font-face {font-family: DINWeb-Bold;src: url("fonts/DINWeb-Bold.woff") format("woff");}
-    	body { background:#000;margin:0; padding: 0; overflow: hidden; font-family: DINWeb, sans-serif; font-size: 18px; }
-      .wrapper { width:100%; height:100%; }
-      .hide { display: none; }
-      #intro { position: absolute; top: 120px; left: 30%; width: 36%; background: #111; background:rgba(0,0,0,.8); color: #fff; padding: 0 2% 15px; cursor: pointer; }
-      h1 { font-family: DINWeb-Bold; font-weight: normal; text-transform: uppercase; margin: 20px 0 0; }
-      p { margin:0 0 10px; }
-      small { font-style: italic; }
-      a, a:hover, a:visited { color: #999; font-family: DINWeb-Bold; font-style: italic; }
-      .author { line-height: 1; margin-top: 20px; }
-      .btn-close { text-decoration: none; color: #fff; position: absolute; top: 0; right: 10px; font-size: 1.5em; font-family: DINWeb-Bold; font-style: normal; }
-    </style>
-  </head>
-  <body>
-    
-    <div id="intro" onclick="document.body.removeChild(document.getElementById('intro'))">
-      <h1>Channel of Awesome</h1>
-      <p>Hit &rarr; to go to the next video.</p>
-      <p>Make your <a href="https://github.com/dfcb/channel-of-awesome#readme">own Channel of Awesome</a> from videos you find on YouTube and Vimeo. Go to the <a href="https://github.com/dfcb/channel-of-awesome">project page</a> to&nbsp;find&nbsp;out&nbsp;more.</p>
-      <p class="author"><small>Channel of Awesome is an <a href="https://github.com/dfcb/channel-of-awesome" target="_blank">open source project</a> by <a href="http://twitter.com/johnpolacek" target="_blank">@johnpolacek</a> of the <a href="http://dfcb.github.com" target="_blank">dev group</a> at draftfcb chicago</small></p>
-      <a href="#" class="btn-close">&times;</a>
+        <header class="main-header">
+            <h1>Channel Of Awesome</h1>
+            <a href="#" id="btn-play-main" class="btn btn-play">Watch Now</a>
+        </header>
+        
+        <section id="main">
+
+            <article class="video-container" data-youtube="fKK933KK6Gg">
+                <h2 class="video-title">Mona Lisa Paint Gun</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Hosts of the Mythbusters show draw an ACTUAL mona lisa painting using paint balls.</p>
+                <ul class="video-links">
+                    <li>Video: <a href="http://www.youtube.com/watch?v=fKK933KK6Gg">YouTube</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="F_citFkSNtk">
+                <h2 class="video-title">Airjelly</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A jelly fish that flies through the air. Just one of many robotics innovations from German tech company Festo.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.festo.com/cms/en_corp/9457.htm">Festo</a></li>
+                    <li>Videos: <a href="http://www.youtube.com/user/FestoHQ">FestoHQ YouTube Channel</a></li>
+                    <li>Tech Info: <a href="http://airshipworld.blogspot.com/2008/04/let-jelly-fish-fly-through-air.html">Blog</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="46857169">
+                <h2 class="video-title">Hyper-Matrix</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Thousands of physical pixels in a 180&deg; vertical landscape.</p>
+                <ul class="video-links">
+                    <li>Tech Info: <a href="http://www.creativeapplications.net/environment/hyper-matrix-thousands-of-physical-pixels-in-a-180o-vertical-landscape/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+            
+            <article class="video-container" data-vimeo="31946199">
+                <h2 class="video-title">Johann Sebastian Joust</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A no-graphics, digitally-enabled playground game for 2 to 7 players, designed for motion controllers such as the PlayStation Move. The goal is to be the last player remaining.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://gutefabrik.com/joust.html">Die Gute Fabrik</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="HlPrOypwt-w">
+                <h2 class="video-title">Paper Robots</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Japanese artist creates functioning robots out of paper and rubber bands.</p>
+                <ul class="video-links">
+                    <li>Videos: <a href="http://www.youtube.com/channel/UCHxKy2nnJDlCqsDyG2jIk3w">YouTube Channel</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="81iiGWdsJgg">
+                <h2 class="video-title">PaperTab</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Revolutionary paper tablet reveals future tablets to be thin and flexible as paper.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.hml.queensu.ca/">Human Media Lab</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="gvd95Z6AiuM">
+                <h2 class="video-title">Kinect@Home</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Use a Kinect to get 3D models of your room, office or whatever you want.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.kinectathome.com">kinectathome.com</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="47095462">
+                <h2 class="video-title">Water Light Graffiti</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A wall made of LED which light up when touched by water.</p>
+                <ul class="video-links">
+                    <li>Article: <a href="http://www.digitalarti.com/blog/digitalarti_mag/water_light_graffiti_by_antonin_fourneau_created_in_the_digitalarti_artlab">Digitalarti Mag</a></li>
+                </ul>
+            </article>
+            
+            <article class="video-container" data-youtube="rZslQZ6iMgA">
+                <h2 class="video-title">Transparent Display</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Samsung has new transparent LCD technology that allows you to overlay information on top of products you're displaying.</p>
+                <ul class="video-links">
+                    <li>Article: <a href="http://www.theverge.com/2012/8/27/3271060/samsung-transparent-commercial-displays-availability">Samsung Transparent Displays</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="8525186">
+                <h2 class="video-title">Night Lights</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">An installation that would go beyond merely projection on buildings and allow viewers to become performers, by taking their body movements and amplifying them 5 stories tall.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://yesyesno.com/">YesYesNo Interactive Projects</a></li>
+                </ul>
+            </article>
+            
+            <article class="video-container" data-vimeo="45417241">
+                <h2 class="video-title">V Motion Project</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">The Motion Project was a collaboration between a lot of clever creative people working together to create a machine that turns motion into music. </p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.v.co.nz/#the-motion-project">The V Motion Project</a></li>
+                    <li>Article: <a href="http://www.custom-logic.com/blog/v-motion-project-the-instrument/">Custom Logic</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="tu0TRA6a21Q">
+                <h2 class="video-title">3D Projection Mapping</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Architectural projection mapping is here and ready to boggle your mind. The idea is that you project a 3D object onto a 2D surface, like the facade of a building.</p>
+            </article>
+
+            <article class="video-container" data-youtube="cseTX_rW3uM">
+                <h2 class="video-title">Quadrotor Lightshow</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A programmed theatrical performance by 16 flying robots reflecting light beams on the stage.</p>
+                <ul class="video-links">
+                    <li>Behind the Scenes: <a href="http://www.dazeddigital.com/artsandculture/article/13839/1/meet-your-creator">Meet Your Creator</a>
+                    <li>
+                    <li>Tech Info: <a href="http://www.creativeapplications.net/events/quadrotors-at-the-saatchi-saatchi-new-directors-showcase-2012-by-mlf-details/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="45200095">
+                <h2 class="video-title">Interactive Sphere Display</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Attending the recent InfoComm trade show in Las Vegas, Pufferfish showed the world their latest multi-touch interactive display allowing visitors to explore a digital globe, triggering touch points and calling up relevant information on the sphere, adding a new dimension to the medium.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.pufferfishdisplays.co.uk/">Pufferfish</a></li>
+                    <li>More Info: <a href="http://www.pufferfishdisplays.co.uk/products/puffersphere-xxl/">PufferSphere XXL</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="30501143">
+                <h2 class="video-title">Years</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Created by Bartholomäus Traubeck, Years is a record player that translates wood’s year rings into sound. Using a ps eye camera, the grain on the slices of wood is read and converted into music. Includes modified turntable, computer, camera, acrylic glass, veneer, approx. 90x50x50 cm.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://traubeck.com/years/">traubeck.com/years</a></li>
+                    <li>More Info: <a href="http://www.creativeapplications.net/vvvv/years-vvvv-arduino/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="VyOtIsnG71U">
+                <h2 class="video-title">Quantum Levitation</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">This levitation effect is explained by the Meissner effect, which describes how, when a material makes the transition from its normal to its superconducting state, it actively excludes magnetic fields from its interior, leaving only a thin layer on its surface.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.quantumlevitation.com">quantumlevitation.com</a></li>
+                    <li>Tech Info: <a href="http://www.quantumlevitation.com/thephysics.html">The Physics</a></li>
+                </ul>
+            </article>
+            
+            <article class="video-container" data-youtube="PlHUOHr4WxA">
+                <h2 class="video-title">Project Icarus</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Icarus is a Free Flight Simulator, the Kinect transforms the postion of your arms to servo positions. The end product has a 55" LCD mounted in front of you where you can see the 3D world you fly trough. Still in development.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://www.kinecthacks.com/project-icarus/">Kinect Hacks</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="akA-B64RACU">
+                <h2 class="video-title">Hover Bike</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Tandem Duct Aerial Vehicle test flights</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.aerofex.com/developmentplatform.asp">Aerofex</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="34824490">
+                <h2 class="video-title">Puppet Parade</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">An interactive installation that allows children to use their arms to puppeteer larger than life creatures projected on the wall in front of them. Children can also step in to the environment and interact with the puppets directly, petting them or creating food for them to eat</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://design-io.com/site_docs/work.php?id=15">Design I/O</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="_uTJiEYI1ik">
+                <h2 class="video-title">Botanicus Interacticus</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">The latest project created at Disney Research by Ivan Poupyrev in collaboration with Philipp Schoessler, Jonas Loh/Studio NAND, and Munehiko Sato. The project is concerned with developing technology for designing “highly expressive interactive plants”, both living and artificial. Driven by the rapid fusion of computing and living spaces, the team take interaction from computing devices and places it in the physical world using livings plants as an interactive medium.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.disneyresearch.com/research/projects/hci_botanicus_drp.htm">Disney Research</a></li>
+                    <li>Tech Info: <a href="http://www.disneyresearch.com/research/projects/etech-botanicus-interacticus-poupyrev.pdf">pdf</a></li>
+                </p>
+          ul 
+            </article>
+
+            <article class="video-container" data-vimeo="35014340">
+                <h2 class="video-title">Sound Machines</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">From The Product, a Berlin-based design studio with a focus on objects, a custom-built instrument for performing electronic music by DJing visual patterns on record-sized discs.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.the-product.org/soundmachines">the-product.org/soundmachines</a></li>
+                    <li>More Info: <a href="http://www.creativeapplications.net/processing/soundmachines-objects-sound/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="42846180">
+                <h2 class="video-title">Kreek</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Kreek is a Kinect controlled interface which extends a 2D multi-touch environment by the perception of depth. This allows the user to literally reach into the interface and gives applications the possibility to interprete parameters like pressure or solid distance.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.farbfundament.de">Lukas Hoeh</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="_d6KuiuteIA">
+                <h2 class="video-title">Leap</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Leap represents an entirely new way to interact with your computers. It’s more accurate than a mouse, as reliable as a keyboard and more sensitive than a touchscreen.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://leapmotion.com/">Leap Motion</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="_Y77BoCKkU0">
+                <h2 class="video-title">Soundbow</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A drawing-based musical instrument</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.binaura.net/stc/wrx/soundbow/">binaura.net</a></li>
+                    <li>More Info: <a href="http://www.creativeapplications.net/android/soundbow-drawing-based-musical-instrument-for-android/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="45704499">
+                <h2 class="video-title">Sona</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Created by Ruslan Gaynutdinov, the project investigates ways sound can be visualised and how the spectator can be immersed in simple sound based geometric compositions.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://www.creativeapplications.net/sound/sona-by-ruslan-gaynutdinov-a-game-of-sound-networks-ecal/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="NDqNqF15SWs">
+                <h2 class="video-title">Social Immersive Media</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A collection of installations work from Snibbe Interactive. They offer a variety of tech products for interactive exhibits.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.snibbeinteractive.com">Snibbe Interactive</a></li>
+                    <li>More Info: <a href="http://www.snibbeinteractive.com/platforms/socialscreen/products">SocialScreen</a></li>
+                </ul>
+            </article>
+
+             <article class="video-container" data-vimeo="2229299">
+                <h2 class="video-title">Spatial Operating Environment</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">The SOE made its public debut in the film Minority Report, whose bellwether interface one of Oblong's founders designed.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://oblong.com">Oblong Industries</a></li>
+                    <li>Tech Info: <a href="http://oblong.com/offerings/platform">SOE Platform</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="45704324">
+                <h2 class="video-title">Light Form</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Created by Mathieu Rivier at ECAL University of Art and Design, Light Form is a sculpture that explores different forms of representations and interactions using a solid but uneven display. The faceted landscape is built on a plinth with integrated projector and infra red sensing to display content that is constrained to the form of the display but offers quite unique interactive experience.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://mathieurivier.ch/lightform.php">mathieurivier.ch</a></li>
+                    <li>More Info: <a href="http://www.creativeapplications.net/openframeworks/light-form-interactive-landscape-by-mathieu-rivier-ecal/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="44904580">
+                <h2 class="video-title">Interactive Laser Sculpture</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Interactive Laser Sculpture is work in progress by Jayson Haebich that involves creating light sculptures out of laser light. The beams of light are interactive and responsive to touch and create an environment of light, colour and sound.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://jaysonh.com/laser.html">jaysonh.com</a></li>
+                    <li>More Info: <a href="http://www.creativeapplications.net/openframeworks/interactive-laser-sculpture-by-jayson-haebich/">creativeapplications.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="kRgnJ54Cb00">
+                <h2 class="video-title">Vertical Works</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Artists have been obsessed with transcribing the effects of light for centuries. In the past 50 years, though, people such as Dan Flavin, James Turrell and the British artist Anthony McCall have started producing art made out of light itself.</p>
+                <ul class="video-links">
+                    <li>Review: <a href="http://www.telegraph.co.uk/culture/art/art-reviews/8362375/Anthony-McCall-Vertical-Works-Ambika-P3-London-review.html">The Telegraph</a>
+                </ul>
+            </article>
+
+            
+            <article class="video-container" data-vimeo="28176347">
+                <h2 class="video-title">Rubens’ Tube</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A Rubens’ tube, also known as a standing wave flame tube, or simply flame tube, is an antique physics apparatus for demonstrating acoustic standing waves in a tube.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://en.wikipedia.org/wiki/Rubens'_tube">Wikipedia</a>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="O2udM5dGT-w">
+                <h2 class="video-title">Smoke Ring Gun</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Using only a small water-vapor based fog machine and a large trash can, giant smoke rings can be produced.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.easternvoltageresearch.com">Eastern Voltage Research</a>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="8dsqozft3k">
+                <h2 class="video-title">Microsoft PixelSense</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Microsoft&reg; PixelSense&trade; technology enables the Samsung SUR40 to recognize fingers, hands and objects placed on the screen, enabling vision-based interaction without the use of cameras.</p>
+                <ul class="video-links">
+                    <li>Product: <a href="http://www.microsoft.com/en-us/pixelsense/default.aspx">Microsoft PixelSense</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="QAGnpKz7zvY">
+                <h2 class="video-title">Propeller Displays</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A propeller display like this one relies on a phenomenon called Persistence of Vision, or POV. If the display is rotating fast enough (at least 25 rotations per second), the circuitry can turn on and off certain LEDs at certain times throughout the rotation to produce a static picture.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://ohmprojects.com/prop-rgb/prop-rgb.html">Ohm Projects</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="E-pyay3v3Qo">
+                <h2 class="video-title">Spoke POV</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A form of propeller display, a SpokePOV is a 'stick' of LEDs with a magnetic (hall effect) sensor on the outer end. When a magnet passes by, the microcontroller takes note. By counting how long it takes between magnet passes, SpokePOV can tell how fast its rotating and quickly blink the LEDS to present an image.</p>
+                <ul class="video-links">
+                    <li>Article: <a href="http://www.ladyada.net/make/spokepov/">Ladyada.net</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="XLKKbz2mNyo">
+                <h2 class="video-title">Robot Soccer</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">&lsquo;Robot Soccer World Cup’ (aka RoboCup) is an international robotics competition. The aim is to promote robotics and AI research, and have a winning RoboCup team play human World Cup victors in a competitive game by 2050.</p>
+                <ul class="video-links"></p>
+                    <li>Website: <a href="http://www.robocup.org">Robocup.org</a></li>
+                    <li>Article: <a href="http://www.slate.com/articles/technology/future_tense/2012/06/robocup_2012_how_robot_soccer_has_led_to_robotics_breakthroughs_.html">Slate</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="38263385">
+                <h2 class="video-title">PO-MOtion Interactive Floors</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A simple to use software package for wall and floor projections that utilizes the Kinect’s motion-tracking technology in conjunction with a projector.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.po-motion.com">PO_MOtion</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="45276780">
+                <h2 class="video-title">littlebits</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">An opensource library of electronic modules that snap together with tiny magnets for prototyping and play.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://littlebits.cc/">littlebits.cc</a>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="6vN57XseOpw">
+                <h2 class="video-title">SmartBird</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc"></p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.festo.com/cms/en_corp/11369.htm">Festo</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="YvbAqw0sk6M">
+                <h2 class="video-title">HRP-4C Miim</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">AIST has succeeded in making the HRP-4C Miim robot walk like a human being.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.aist.go.jp/index_en.html">AIST</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="tBNHPk-Lnkk">
+                <h2 class="video-title">Amazing Anamorphic Illusions!</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://en.wikipedia.org/wiki/Anamorphosis">Wikipedia</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="rfQqh7iCcOU">
+                <h2 class="video-title">MaKey MaKey</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Make a piano out of bananas, play Mario on Play-Doh, let your kitty take a picture of herself. This is a simple invention kit for beginners, experts, and everything inbetween.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.makeymakey.com">MaKey MaKey</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="2iZ0WuNvHr8">
+                <h2 class="video-title">How To Ride Kuratas</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc"></p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://suidobashijuko.jp">Suidobashi</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="JXmBrD4b4EI">
+                <h2 class="video-title">bicymple</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">a bicycle, simplified.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://bicymple.com">bicymple.com</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="nkbr-FItV00">
+                <h2 class="video-title">Slow Motion Light</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">MIT researchers have created a camera which can take images so fast - one trillion of them in just a second - that it can capture light as it travels across objects.</p>
+                <ul class="video-links">
+                    <li>Tech Info: <a href="http://www.youtube.com/watch?v=Y_9vd4HWlVA&feature=youtu.be">TED Talk</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="zX09WnGU6ZY">
+                <h2 class="video-title">Lego Hello World</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Lego felt tip 110" printer</p>
+                <ul class="video-links">
+                    <li>Tech Info: <a href="http://www.adamish.com/projects/legoprinter/">adamish.com</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="8g3LaF9oVFY">
+                <h2 class="video-title">Interactive Lasercutting</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Constructable is an interactive drafting table that produces precise physical output in every step. Users interact by drafting on the workpiece using a hand-held laser pointer.</p>
+                <ul class="video-links">
+                    <li>Tech Info: <a href="http://www.hpi.uni-potsdam.de/baudisch/projects/constructable.html">Constructable</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="JVrXAsYd1Wk">
+                <h2 class="video-title">THINK Exhibit</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Through live data visualization, a first-of-a-kind immersive film, and giant ineractive stations, the exhibit explores how we can make the world work better.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://thinkexhibit.com">thinkexhibit.com</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="FFGfq0pRczY">
+                <h2 class="video-title">Pet-Proto</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">To maneuver over and around the obstacles, the robot exercises capabilities including autonomous decision-making, dismounted mobility and dexterity.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://www.darpa.mil/Our_Work/TTO/Programs/DARPA_Robotics_Challenge.aspx">DARPA Robotics Challenge</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="cKINOqviAEQ">
+                <h2 class="video-title">Snake-Bot</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">HiBot snake like robot ACM-R5</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.hibot.co.jp/">HiBot</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="gvUpkknryaY">
+                <h2 class="video-title">particles</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Art installation which is able to create a visionary beautiful dots pattern of blinking innumerable illuminations floating in all directions on the air.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://particles.ycam.jp/en/">particles.ycam.jp</a></li>
+                    <li>Tech Info: <a href="http://daito.ws/dl/particles_0406.pdf">pdf</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="BmBe1sJRp8o">
+                <h2 class="video-title">Electroluminescent Fashion</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Incorporating light-emitting surfaces into her unconventional dress designs, Chinese designer Vega Wang creates daring, tech-infused clothing.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://www.thecreatorsproject.com/creators/vega-zaishi-wang">The Creators Project</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="qJuTM0Y7U1k">
+                <h2 class="video-title">Shapeways 3D Printing</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Shapeways 3D printing community and marketplace is enabling everyone to be a creator. All you need is an idea and an Internet connection.</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.shapeways.com">Shapeways</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="8PCp5xk-9Qo">
+                <h2 class="video-title">Pumpktris</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Fully playable version of Tetris built into a pumpkin, with 128 LEDs for the display and the stem serving as a game controller.</p>
+                <ul class="video-links">
+                    <li>Tech Info: <a href="http://www.hahabird.com/2012/10/pumpktris/">hahabird.com</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="rO2TR_8jXPc">
+                <h2 class="video-title">BirdBuggy</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Bird Buggy allows trained parrot to ‘drive’ around the house.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="https://sites.google.com/site/birdbuggy109/">Website</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="t-r_WMg0Ido">
+                <h2 class="video-title">Lumiblade OLEDs</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">For the first time in the history of lighting consumers can enjoy an entirely new form of light.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.lumiblade-experience.com">Lumiblade Experience</a></li>
+                    <li>Buy: <a href="https://www.lumiblade-shop.com/index.php/">Lumiblade Shop</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="t-r_WMg0Ido">
+                <h2 class="video-title">LS3 Folow Tight</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Working with the Marine Corps Warfighting Laboratory (MCWL), researchers from DARPA's LS3 program demonstrated new advances in the robot's control, stability and maneuverability, including ‘Leader Follow’ decision making, enhanced roll recovery, exact foot placement over rough terrain, the ability to maneuver in an urban environment, and verbal command capability.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://www.darpa.mil/NewsEvents/Releases/2012/12/19.aspx">DARPA</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="FBC6OUArr-M">
+                <h2 class="video-title">3D Printing + Letterpress</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Each letterform of the alphabet was printed as a 3-D type-high block with a solid face on one side and a skeleton face on the flip side.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="https://twitter.com/eric_wolinsky">Eric Wolinsky</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="FBC6OUArr-M">
+                <h2 class="video-title">LIFX</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">LIFX is a WIFI enabled, energy efficient, multi-colored bulb that you control with your iPhone or Android..</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://lifx.co">LIFX</a></li>
+                </ul>
+            </article>
+            
+            <article class="video-container" data-youtube="FBC6OUArr-M">
+                <h2 class="video-title">Redneck Spider Mech</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">I have no idea who these guys are, but they managed to build an 8-legged, gas-powered spider mech in their spare time.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://www.mondospider.com/index.php">Mondospider</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="42846180">
+                <h2 class="video-title">LuminAR</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">LuminAR is a new compact and kinetic projected augmented reality interface.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://fluid.media.mit.edu/projects/luminar">Fluid Interfaces Group</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="44369414">
+                <h2 class="video-title">Beatsurfing</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">The Organic MIDI Controller Builder</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://beatsurfing.net">beatsurfing.net/</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="53476316">
+                <h2 class="video-title">This is Lamp</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Customized computer code and electronic circuit design imbues Lamp with the ability to be aware of its environment, especially people, and to expresses a dynamic range of behaviour.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://www.behance.net/gallery/Pinokio/5914541">Behance</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="49759812">
+                <h2 class="video-title">Toxoplasmosis Window Installation</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Customized computer code and electronic circuit design imbues Lamp with the ability to be aware of its environment, especially people, and to expresses a dynamic range of behaviour.</p>
+                <ul class="video-links">
+                    <li>More Info: <a href="http://vimeo.com/49759812">Vimeo</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="52025659">
+                <h2 class="video-title">Made by Humans</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Beautiful videos for huge South Korea installation</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://universaleverything.com">Universal Everything</a></li>
+                    <li>Article: <a href="http://www.itsnicethat.com/articles/universal-everything-hyundai-vision-hall">It’s Nice That</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="51320244">
+                <h2 class="video-title">Human-Powered Helicopter</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A working four-rotor helicopter that spans 100 feet and only weighs 80 pounds.</p>
+                <ul class="video-links">
+                    <li>Article: <a href="http://www.npr.org/2012/10/14/160670295/flight-club-human-powered-helicopter">NPR</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="32555035">
+                <h2 class="video-title">Spider Projection</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">3D animation and projection mapping</p>
+                <ul class="video-links">
+                    <li>Company: <a href="http://www.3hund.com/index1.html">3HUND</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="50197298">
+                <h2 class="video-title">The Alchemy of Light</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Projection mapping live performance art</p>
+                <ul class="video-links">
+                    <li>Artist: <a href="facebook.com/adandypunk">a dandy punk</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="49367868">
+                <h2 class="video-title">Dynamics of the Subway</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Each note from instruments is represented by a geometric shape in the animation; while these shapes move in sync with the song, they also form the parts that create the subway itself.</p>
+                <ul class="video-links">
+                    <li>Director: <a href="http://www.onishikeita.com/">Keita Onishi</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="49222355">
+                <h2 class="video-title">Light Painting</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Made using real lights on location.</p>
+                <ul class="video-links">
+                    <li>Director: <a href="http://anssimaatta.tumblr.com">Anssi Määttä</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="49175462">
+                <h2 class="video-title">Tweet to Shoot</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">A Nerf gun rigged to a 12-volt power supply and an Arduino Uno microcontroller.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://tweettoshoot.neimanlabs.com">tweettoshoot.neimanlabs.com</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-vimeo="53561976">
+                <h2 class="video-title">Spero</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">The world’s first robotic ball that you control with a tilt, touch, or swing from your smartphone or tablet.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://www.gosphero.com">gosphero.com</a></li>
+                </ul>
+            </article>
+
+            <article class="video-container" data-youtube="3RBSkq-_St8">
+                <h2 class="video-title">Compressorhead</h2>
+                <a href="#" class="btn btn-small btn-play">Watch Now</a>
+                <p class="video-desc">Robot heavy metal rock band.</p>
+                <ul class="video-links">
+                    <li>Website: <a href="http://compressorheadband.com">compressorheadband.com</a></li>
+                    <li>Company: <a href="http://www.robocross.de/">Robocross</a></li>
+                </ul>
+            </article>
+        </section>
     </div>
-    
-    <div class="wrapper">
-      <div id="yt-player-contain" class="hide"></div>
-      <div id="v-player-contain" class="hide"></div>
+    <div id="channel-view" class="hide">
+        <div id="yt-player-contain"></div>
+        <div id="v-player-contain"></div>
     </div>
-    
     <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//www.youtube.com/iframe_api"></script>
     <script src="http://a.vimeocdn.com/js/froogaloop2.min.js?462b5-1349886067"></script>
-    
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34145020-1']);
-      _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    <script src="js/equalize.min.js"></script>
+    <script src="js/channel-of-awesome.js"></script>
 
-    <script>
-
-      // add arrays to playlists for different awesome channels
-      // for example, add cats:[...] then load it by going to index.html#cats
-
-      var playlists = {
-        tech:[
-          'youtube:c3-wIICjAhE',
-          'youtube:Llmq2hYWXHo',
-          'vimeo:31946199',
-          'vimeo:46857169',
-          'vimeo:52899256',
-          'youtube:6vN57XseOpw',
-          'vimeo:44369414',
-          'youtube:HlPrOypwt-w',
-          'youtube:gvd95Z6AiuM',
-          'youtube:H5yT9FL-2v4',
-          'youtube:YvbAqw0sk6M',
-          'vimeo:47095462',
-          'vimeo:53476316',
-          'youtube:tBNHPk-Lnkk',
-          'youtube:rfQqh7iCcOU',
-          'vimeo:8525186',
-          'youtube:2iZ0WuNvHr8',
-          'youtube:rZslQZ6iMgA',
-          'youtube:83eGcht7IiI',
-          'vimeo:45417241',
-          'youtube:DRRu5dKRfTU',
-          'youtube:JXmBrD4b4EI',
-          'youtube:cseTX_rW3uM',
-          'youtube:tu0TRA6a21Q',
-          'vimeo:48362240',
-          'youtube:Y7-UjTKygO0',
-          'youtube:PlHUOHr4WxA',
-          'youtube:akA-B64RACU',
-          'vimeo:34824490',
-          'youtube:_uTJiEYI1ik',
-          'vimeo:42846180',
-          'youtube:_d6KuiuteIA',
-          'youtube:NDqNqF15SWs',
-          'vimeo:2229299',
-          'vimeo:44904580',
-          'vimeo:28176347',
-          'youtube:O2udM5dGT-w',
-          'youtube:58dsqozft3k',
-          'youtube:2hASOre63Nk',
-          'youtube:nkbr-FItV00',
-          'youtube:E-pyay3v3Qo',
-          'youtube:XLKKbz2mNyo',
-          'vimeo:44464000',
-          'vimeo:30780208',
-          'vimeo:2177723',
-          'vimeo:45276780',
-          'vimeo:49759812',
-          'youtube:3TOrj-GadtU',
-          'youtube:zX09WnGU6ZY',
-          'youtube:8g3LaF9oVFY',
-          'youtube:W18Z3UnnS_0',
-          'youtube:JVrXAsYd1Wk',
-          'youtube:FFGfq0pRczY',
-          'youtube:cKINOqviAEQ',
-          'vimeo:52025659',
-          'vimeo:51320244',
-          'vimeo:37176398',
-          'vimeo:50197298',
-          'vimeo:49367868',
-          'vimeo:49222355',
-          'youtube:gvUpkknryaY',
-          'youtube:BmBe1sJRp8o',
-          'youtube:qJuTM0Y7U1k',
-          'youtube:8PCp5xk-9Qo',
-          'vimeo:8072358',
-          'youtube:rO2TR_8jXPc',
-          'youtube.com:t-r_WMg0Ido',
-          'vimeo:26457737',
-          'youtube:hNUeSUXOc-w',
-          'youtube:FBC6OUArr-M',
-          'youtube:GUvk9rS8qvQ',
-          'vimeo:49175462',
-          'youtube:Gz9kZh8PNVM'
-        ]
-      }
-      
-      // get playlist id or array from hash, if it isn't valid use default, then randomize
-      var defaultPlaylist = 'tech';
-      var playlist;
-      if (location.hash === '') {
-        playlist = playlists[defaultPlaylist];
-      } else if (location.hash.indexOf(',') !== -1) {
-        playlist = location.hash.substr(1).split(',');
-      } else {
-        playlist = playlists[location.hash.substr(1)] || playlists[defaultPlaylist];
-      }
-      playlist.sort(function() { return 0.5 - Math.random() });
-
-      var ytPlayer, 
-          vPlayer, 
-          vidIndex = 0;
-      
-      function addEvent(element, eventName, callback) {
-          if (element.addEventListener) {
-              element.addEventListener(eventName, callback, false);
-          }
-          else {
-              element.attachEvent('on' + eventName, callback);
-          }
-      }
-
-      function onYouTubeIframeAPIReady() {
-        ytPlayer = new YT.Player('yt-player-contain', {
-          height: '100%',
-          width: '100%',
-          playerVars: {
-            controls:0,
-            showinfo:0
-          },
-          events: {
-            'onReady': onYTPlayerReady,
-            'onStateChange': onYTPlayerStateChange
-          }
-        });
-      }
-
-      function onYTPlayerReady(e) {
-        playNextVideo();
-      }
-
-      function playNextVideo() {
-        var ytPlayerContainer = document.getElementById('yt-player-contain')
-        var vPlayerContainer = document.getElementById('v-player-contain')
-
-        // get next video from playlist
-        var video = playlist[vidIndex].split(':');
-        // increment video playlist index
-        vidIndex = (vidIndex === playlist.length) ? 0 : vidIndex+1;
-
-        // get video data 
-        var service = video[0];
-        var id = video[1];
-        var startTime = (video[2] === undefined) ? 0 : video[2];
-
-        // track video view
-        _gaq.push(['_trackPageview', '/'+service+'/'+id]);
-
-        // update player with new video
-        if (service === 'youtube') {
-          
-          // hide vimeo
-          vPlayerContainer.className = 'hide';
-          vPlayerContainer.innerHTML = '';
-          
-          // show/load/play video
-          ytPlayerContainer.className = '';
-          ytPlayer.loadVideoById(id, startTime);
-        }
-        else if (service === 'vimeo') {
-          // hide youtube
-          ytPlayerContainer.className = 'hide';
-          
-          // show/load/play vimeo
-          vPlayerContainer.className = '';
-          vPlayerContainer.innerHTML = '<iframe id="v-player" src="http://player.vimeo.com/video/'+id+'?api=1&player_id=v-player&autoplay=1&title=0&byline=0&portrait=0&api=1" width="100%" height="100%" frameborder="0" webkitallowfullscreen allowfullscreen></iframe>';
-
-          vPlayer = document.getElementById('v-player');
-          $f(vPlayer).addEvent('ready', function(playerID) {
-            vPlayer = $f(playerID);
-            vPlayer.addEvent('finish', playNextVideo);
-            vPlayer.api('seekTo', startTime);
-          });
-
-          var isPlaying = false;
-          $f(vPlayer).addEvent('playProgress', function(playerID) {
-            isPlaying = true;
-          });
-          setTimeout(function() {
-            if (!isPlaying) {
-              onPlayError('Could not play video, Vimeo ID:'+id);
-              playNextVideo();
-            }
-          }, 5000)
-
-        } 
-        // if service not supported error
-        else {
-          onPlayError('Video service "'+service+'" not recognized');
-        }
-      }
-
-      function onPlayError(msg) {
-        // throw error and try next video
-        throw new Error(msg);
-        playNextVideo();
-      }
-
-      function onYTPlayerStateChange(e) {
-        // play next video when video ends
-        if (e.data === YT.PlayerState.ENDED) {
-          playNextVideo();
-        }
-      }
-
-      document.onkeydown = function(e) {
-        e = e || window.event;
-        if (e.keyCode === 39) {
-            playNextVideo();
-        }
-      };
-
-      setTimeout(function() {document.body.removeChild(document.getElementById('intro'))},20000);
-    </script>
-  </body>
+</body>
 </html>
