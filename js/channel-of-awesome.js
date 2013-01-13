@@ -1,4 +1,4 @@
-if (typeof console === undefined) console = {log:function(){};}
+if (typeof console === undefined) console = {log:function(){}}
 
 var ytPlayer,
     vPlayer,
