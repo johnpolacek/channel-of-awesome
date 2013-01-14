@@ -37,8 +37,7 @@ function startChannel() {
 
 function stopChannel(startIndex) {
     isOn = false;
-    $('#playlist-view').removeClass('hide');
-    $('#channel-view').addClass('hide');
+    window.location = './';
 }
 
 function playVideo() {
@@ -109,7 +108,7 @@ function onPlayError(msg) {
 
 function updateDashboard() {
     console.log('updateDashboard');
-    var dashboardHTML = '<span class="now-playing">Now Playing: '+videos[vidIndex].title+'</span>';
+    $('#now-playing-title').text(videos[vidIndex].title);
     $('#channel-dashboard')
         .html(dashboardHTML)
         .removeClass('transparent');
@@ -226,7 +225,7 @@ $(function() {
         navList += '<li class="playlist-item"><a href="#" class="btn btn-playlist animate" data-vid="'+videoData.service+':'+videoData.id+'">'+videoData.title+'</a></li>';
     });
     navList += '</ul>';
-    $($(navList)).insertAfter($('header')).equalize('outerHeight');
+    $($(navList)).insertAfter($('.main-header')).equalize('outerHeight');
 
     // playlist page navigtation
     $('.playlist').on('click','.btn-playlist',function(e) {
@@ -239,16 +238,21 @@ $(function() {
     });
 
     // watch channel
-    $('#main').on('click','.btn-play',function(e) {
+    $('#videos').on('click','.btn-play',function(e) {
         e.preventDefault();
         $('#channel-view').removeClass('hide');
         vidIndex = $(this).parent().index();
         startChannel();
     });
-    $('#btn-play-main').on('click',function(e) {
+    $('.top-header').on('click','.btn-play',function(e) {
         e.preventDefault();
         vidIndex = 0;
         startChannel();
+    });
+
+    $('#btn-stop-channel').on('click',function(e) {
+        e.preventDefault();
+        stopChannel();
     });
 
     // go to next video on right arrow key down
