@@ -10,6 +10,14 @@ var ytPlayer,
     autoHideTimer,
     dashIsHidden;
 
+// default key/tag mappings for playlist control
+var keyMapping = {
+    65:'art',           // a
+    83:'science',       // s
+    68:'art,science',   // d
+    70:'fun'            // f
+};
+
 function onYouTubeIframeAPIReady() {
     console.log('onYouTubeIframeAPIReady');
     ytPlayer = new YT.Player('yt-player-contain', {
@@ -41,6 +49,7 @@ function stopChannel(startIndex) {
 }
 
 function playVideo() {
+    console.log('playVideo');
     // get video data
     var videoData = videoPlaylist[vidIndex];
     var service = videoData.service;
@@ -108,7 +117,6 @@ function updateDashboard() {
     console.log('updateDashboard');
     $('#now-playing-title').text(videoPlaylist[vidIndex].title);
     $('#channel-dashboard')
-        .html(dashboardHTML)
         .removeClass('transparent');
 
     enableAutoHide(false);
@@ -120,19 +128,20 @@ function updateDashboard() {
 }
 
 function resetPlaylist(tags) {
+    videoPlaylist = [];
     var playlistTags = (typeof tags === 'undefined') ? [] : tags.split(',');
     // loop
     $('.video-container').each(function() {
         var $vidContainer = $(this),
-            addToPlaylist = false;
+            addToPlaylist = true;
 
         if (playlistTags.length) {
             $.each(playlistTags, function(i, val) {
-                if ($vidContainer.hasClass('tag-'+val)) addToPlaylist = true;
+                if (!$vidContainer.hasClass('tag-'+val)) {
+                    addToPlaylist = false;
+                }
             });
-        } else {
-            addToPlaylist = true;
-        }
+        } 
         if (addToPlaylist) {
             var videoData = {};
             videoData.service = ($vidContainer.attr('data-youtube') === undefined) ? 'vimeo' : 'youtube';
@@ -261,17 +270,12 @@ $(function() {
     });
 
     // watch channel
-    $('#videoPlaylist').on('click','.btn-play',function(e) {
+    $('#videos').on('click','.btn-play',function(e) {
         e.preventDefault();
         vidIndex = $(this).parent().index();
         startChannel();
     });
-    $('.top-header').on('click','.btn-play',function(e) {
-        e.preventDefault();
-        vidIndex = 0;
-        startChannel();
-    });
-
+    
     $('#btn-stop-channel').on('click',function(e) {
         e.preventDefault();
         stopChannel();
@@ -286,6 +290,25 @@ $(function() {
     // go to next video on right arrow key down
     document.onkeydown = function(e) {
         e = e || window.event;
+
+        var playTags;
+
+        for (keyCode in keyMapping) {
+            if (keyCode == e.keyCode) {
+                playTags = keyMapping[keyCode];
+            }
+        }
+        
+        if (playTags) {
+            resetPlaylist(playTags);
+            vidIndex = 0;
+            if (isOn) {
+                playVideo();    
+            } else {
+                startChannel();
+            }
+        }
+
         if (isOn && e.keyCode === 39) {
             e.preventDefault();
             vidIndex++;
