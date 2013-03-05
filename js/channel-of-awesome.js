@@ -1,10 +1,10 @@
-if (typeof console === undefined) console = {log:function(){}}
+if (typeof console === undefined) console = {log:function(){}};
 
 var ytPlayer,
     vPlayer,
     vidIndex = 0,
     isOn = false,
-    videos = [],
+    videoPlaylist = [],
     ytPlayerContainer = $('#yt-player-contain').hide(),
     vPlayerContainer = $('#v-player-contain').hide(),
     autoHideTimer,
@@ -42,7 +42,7 @@ function stopChannel(startIndex) {
 
 function playVideo() {
     // get video data
-    var videoData = videos[vidIndex];
+    var videoData = videoPlaylist[vidIndex];
     var service = videoData.service;
     var id = videoData.id;
     var title = videoData.title;
@@ -51,7 +51,7 @@ function playVideo() {
 
     // update player with new video
     if (service === 'youtube') {
-      
+
         // hide vimeo
         vPlayerContainer.hide().empty();
 
@@ -80,14 +80,12 @@ function playVideo() {
                     console.log('vimeo playProgress set isPlaying = true');
                     isPlaying = true;
                 }
-                
             });
             vPlayer.addEvent('finish', onVideoFinish);
         });
 
-        
         setTimeout(function() {
-            if (!isPlaying && videos[vidIndex].service === 'vimeo') {
+            if (!isPlaying && videoPlaylist[vidIndex].service === 'vimeo') {
                 onPlayError('Could not play video, Vimeo ID:'+id);
             }
         }, 10000);
@@ -108,7 +106,7 @@ function onPlayError(msg) {
 
 function updateDashboard() {
     console.log('updateDashboard');
-    $('#now-playing-title').text(videos[vidIndex].title);
+    $('#now-playing-title').text(videoPlaylist[vidIndex].title);
     $('#channel-dashboard')
         .html(dashboardHTML)
         .removeClass('transparent');
@@ -119,7 +117,35 @@ function updateDashboard() {
         $('#channel-dashboard').addClass('transparent');
         enableAutoHide(true);
     }, 5000);
+}
 
+function resetPlaylist(tags) {
+    var playlistTags = (typeof tags === 'undefined') ? [] : tags.split(',');
+    // loop
+    $('.video-container').each(function() {
+        var $vidContainer = $(this),
+            addToPlaylist = false;
+
+        if (playlistTags.length) {
+            $.each(playlistTags, function(i, val) {
+                if ($vidContainer.hasClass('tag-'+val)) addToPlaylist = true;
+            });
+        } else {
+            addToPlaylist = true;
+        }
+        if (addToPlaylist) {
+            var videoData = {};
+            videoData.service = ($vidContainer.attr('data-youtube') === undefined) ? 'vimeo' : 'youtube';
+            videoData.id = $vidContainer.attr('data-'+videoData.service);
+            videoData.title = $vidContainer.find('.video-title').text();
+            videoData.desc = $vidContainer.find('.video-desc').html();
+            videoData.links = [];
+            $vidContainer.find('.video-links li').each(function() {
+                videoData.links.push( $(this).html() );
+            });
+            videoPlaylist.push(videoData);
+        }
+    });
 }
 
 function enableAutoHide(enable) {
@@ -161,7 +187,7 @@ function onYouTubeIframeAPIReady() {
 
 function onYTPlayerReady(e) {
     console.log('onYTPlayerReady');
-    if (isOn && videos[vidIndex].service === 'youtube') {
+    if (isOn && videoPlaylist[vidIndex].service === 'youtube') {
         playVideo();
     }
 }
@@ -209,23 +235,20 @@ $(function() {
     $('.video-container').parent().append($videoContainers);
 
 
-    // create a video data array and playlist from the dom
+    // create nav for all the videos create a video data array and playlist from the dom
     var navList = '<ul class="playlist clearfix">';
     $('.video-container').each(function() {
-        videoData = {};
+        var videoData = {};
         videoData.service = ($(this).attr('data-youtube') === undefined) ? 'vimeo' : 'youtube';
         videoData.id = $(this).attr('data-'+videoData.service);
         videoData.title = $(this).find('.video-title').text();
-        videoData.desc = $(this).find('.video-desc').html();
-        videoData.links = [];
-        $(this).find('.video-links li').each(function() {
-            videoData.links.push( $(this).html() );
-        });
-        videos.push(videoData);
         navList += '<li class="playlist-item"><a href="#" class="btn btn-playlist animate" data-vid="'+videoData.service+':'+videoData.id+'">'+videoData.title+'</a></li>';
     });
     navList += '</ul>';
     $($(navList)).insertAfter($('.main-header')).equalize('outerHeight');
+
+    // set playlist to default (play all)
+    resetPlaylist();
 
     // playlist page navigtation
     $('.playlist').on('click','.btn-playlist',function(e) {
@@ -238,9 +261,8 @@ $(function() {
     });
 
     // watch channel
-    $('#videos').on('click','.btn-play',function(e) {
+    $('#videoPlaylist').on('click','.btn-play',function(e) {
         e.preventDefault();
-        $('#channel-view').removeClass('hide');
         vidIndex = $(this).parent().index();
         startChannel();
     });
@@ -253,6 +275,12 @@ $(function() {
     $('#btn-stop-channel').on('click',function(e) {
         e.preventDefault();
         stopChannel();
+    });
+
+    $('#btn-play-main').on('click',function(e) {
+        e.preventDefault();
+        vidIndex = 0;
+        startChannel();
     });
 
     // go to next video on right arrow key down
