@@ -129,7 +129,21 @@ function updateDashboard() {
 
 function resetPlaylist(tags) {
     videoPlaylist = [];
+    $('#tag-bug').remove();
     var playlistTags = (typeof tags === 'undefined') ? [] : tags.split(',');
+    if (playlistTags.length) {
+        tagBugMarkup = '<div id="tag-bug">';
+        $.each(playlistTags, function(i, val) {
+            if (i > 0) tagBugMarkup += ' + ';
+            tagBugMarkup += val;
+        });
+        tagBugMarkup += '</div>';
+        $('#channel-view').append(tagBugMarkup);
+    } else {
+        $('#tag-bug').remove();
+    }
+
+    var tagBugMarkup = '';
     // loop
     $('.video-container').each(function() {
         var $vidContainer = $(this),
@@ -137,11 +151,10 @@ function resetPlaylist(tags) {
 
         if (playlistTags.length) {
             $.each(playlistTags, function(i, val) {
-                if (!$vidContainer.hasClass('tag-'+val)) {
-                    addToPlaylist = false;
-                }
+                if (!$vidContainer.hasClass('tag-'+val)) addToPlaylist = false;
             });
-        } 
+        }
+
         if (addToPlaylist) {
             var videoData = {};
             videoData.service = ($vidContainer.attr('data-youtube') === undefined) ? 'vimeo' : 'youtube';
