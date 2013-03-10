@@ -14,8 +14,7 @@ var ytPlayer,
 var keyMapping = {
     65:'art',           // a
     83:'science',       // s
-    68:'art,science',   // d
-    70:'fun'            // f
+    68:'art,science'   // d
 };
 
 function onYouTubeIframeAPIReady() {
@@ -322,7 +321,8 @@ $(function() {
             }
         }
 
-        if (isOn && e.keyCode === 39) {
+        // right arrow or w skips to next video
+        if (isOn && e.keyCode === 39 || isOn && e.keyCode === 87) {
             e.preventDefault();
             vidIndex++;
             playVideo();
