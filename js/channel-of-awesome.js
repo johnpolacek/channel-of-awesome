@@ -287,7 +287,7 @@ $(function() {
         vidIndex = $(this).parent().index();
         startChannel();
     });
-    
+
     $('#btn-stop-channel').on('click',function(e) {
         e.preventDefault();
         stopChannel();
@@ -305,17 +305,17 @@ $(function() {
 
         var playTags;
 
-        for (keyCode in keyMapping) {
+        for (var keyCode in keyMapping) {
             if (keyCode == e.keyCode) {
                 playTags = keyMapping[keyCode];
             }
         }
-        
+
         if (playTags) {
             resetPlaylist(playTags);
             vidIndex = 0;
             if (isOn) {
-                playVideo();    
+                playVideo();
             } else {
                 startChannel();
             }
