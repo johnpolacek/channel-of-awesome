@@ -231,7 +231,7 @@ function onYTPlayerStateChange(e) {
 
 function onVideoFinish() {
     console.log('onVideoFinish');
-    vidIndex = vidIndex === (vidIndex === playlist.length-1) ? 0 : vidIndex+1;
+    vidIndex = (vidIndex === videoPlaylist.length-1) ? 0 : vidIndex+1;
     playVideo();
 }
 
@@ -333,14 +333,14 @@ $(function() {
         // right arrow or w skips to next video
         if (isOn && e.keyCode === 39 || isOn && e.keyCode === 87) {
             e.preventDefault();
-            vidIndex = vidIndex === (vidIndex === playlist.length-1) ? 0 : vidIndex+1;
+            vidIndex = (vidIndex === videoPlaylist.length-1) ? 0 : vidIndex+1;
             playVideo();
         }
 
         // left arrow goes to previous video
         if (isOn && e.keyCode === 37) {
             e.preventDefault();
-            vidIndex = (vidIndex !== 0) ? vidIndex-1 : playlist.length-1;
+            vidIndex = (vidIndex !== 0) ? vidIndex-1 : videoPlaylist.length-1;
             playVideo();
         }
     };
