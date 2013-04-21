@@ -18,7 +18,7 @@ var keyMapping = {
 };
 
 function onYouTubeIframeAPIReady() {
-    console.log('onYouTubeIframeAPIReady');
+    // console.log('onYouTubeIframeAPIReady');
     ytPlayer = new YT.Player('yt-player-contain', {
         height: '100%',
         width: '100%',
@@ -34,7 +34,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function route() {
-    console.log('route '+location.hash);
+    // console.log('route '+location.hash);
     if (location.hash !== '') {
         var videoID = (location.hash).substring(1);
         var $vidContainer = $('#videos').find('.video-container[data-youtube="'+videoID+'"], .video-container[data-vimeo="'+videoID+'"]');
@@ -63,7 +63,7 @@ function playVideo() {
     var id = videoData.id;
     var title = videoData.title;
 
-    console.log('playVideo '+service+' '+id);
+    // console.log('playVideo '+service+' '+id);
 
     // update player with new video
     if (service === 'youtube') {
@@ -88,11 +88,11 @@ function playVideo() {
         vPlayer = document.getElementById('v-player');
         var isPlaying = false;
         $f(vPlayer).addEvent('ready', function(playerID) {
-            console.log('vimeo event ready');
+            // console.log('vimeo event ready');
             vPlayer = $f(playerID);
             vPlayer.addEvent('playProgress', function(playerID) {
                 if (!isPlaying) {
-                    console.log('vimeo playProgress set isPlaying = true');
+                    // console.log('vimeo playProgress set isPlaying = true');
                     isPlaying = true;
                 }
             });
@@ -116,7 +116,7 @@ function playVideo() {
 }
 
 function onPlayError(msg) {
-    console.log('onPlayError '+msg);
+    // console.log('onPlayError '+msg);
     // try next video
     onVideoFinish();
     // throw new Error(msg);
@@ -129,7 +129,7 @@ function updateDashboard() {
 
     enableAutoHide(false);
     autoHideTimer = setTimeout(function() {
-        console.log('start autohide');
+        // console.log('start autohide');
         $('#channel-dashboard').addClass('transparent');
         enableAutoHide(true);
     }, 5000);
@@ -199,7 +199,7 @@ function enableAutoHide(enable) {
 }
 
 function onYouTubeIframeAPIReady() {
-    console.log('onYouTubeIframeAPIReady');
+    // console.log('onYouTubeIframeAPIReady');
     ytPlayer = new YT.Player('yt-player-contain', {
         height: '100%',
         width: '100%',
@@ -216,7 +216,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onYTPlayerReady(e) {
-    console.log('onYTPlayerReady');
+    // console.log('onYTPlayerReady');
     if (isOn && videoPlaylist[vidIndex].service === 'youtube') {
         playVideo();
     }
@@ -230,7 +230,7 @@ function onYTPlayerStateChange(e) {
 }
 
 function onVideoFinish() {
-    console.log('onVideoFinish');
+    // console.log('onVideoFinish');
     vidIndex = (vidIndex === videoPlaylist.length-1) ? 0 : vidIndex+1;
     playVideo();
 }
