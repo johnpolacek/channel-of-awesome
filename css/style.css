@@ -132,6 +132,7 @@ a:focus, a:hover, a:active { outline:0; }
   padding: 0;
 }
 #channel-view { width:100%; height:100%; overflow: hidden; }
+.channel-players { width:100%; height:100%; }
 #channel-dashboard { 
   color: #fff; 
   font-family: DINWeb; 
