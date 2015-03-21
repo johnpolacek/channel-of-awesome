@@ -45,9 +45,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display
 /*  ==========================================================================
     PRIMARY STYLES
     ========================================================================== */
-
+html {min-height:100%;}
 body { background:#f6f6f6; line-height: 1.4; font-size:18px; font-family:DINWeb-Bold; color: #282828;}
-body.channel-active { overflow: hidden; background: #000; }
+body.channel-active { overflow: hidden; background: #000; height:100%; }
 .wrapper { padding:50px 50px 100px; width:900px; margin:0 auto; }
 .top-header { margin:0; padding: 60px 0 120px; text-align:center; border-bottom:solid 8px #eee;}
 .top-header a, .top-header a:visited { text-decoration: none; color: #dfdfdf;}
@@ -56,7 +56,7 @@ body.channel-active { overflow: hidden; background: #000; }
 
 section { margin: 10px 0;  }
 article { margin: 20px 0; padding: 20px 0; border-bottom:solid 8px #eee; }
-iframe { margin: 0; padding: 0; }
+iframe { margin: 0; padding: 0; height:100%; }
 
 h1 { 
   position:relative; 
